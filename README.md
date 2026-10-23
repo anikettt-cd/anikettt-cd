@@ -21,15 +21,27 @@
 <!-- ═══════════════ ABOUT ═══════════════ -->
 ## 👨‍💻 About Me
 
+```bash
+$ whoami
+aniket-saini   # python backend · agentic RAG · distributed systems
+
+$ cat current_focus.txt
+CloudHeal      → multi-laptop mini-cloud with deterministic self-healing
+Agentic RAG    → MCP tool-calling over hybrid search (BM25 + pgvector + RRF)
+
+$ ls ~/goals
+ai-engineering/   production-grade-backends/   open-source/
+```
+
 ```python
 class Aniket:
-    role      = "Python Backend & Full-Stack Engineer"
-    education = "B.E. Information Technology  |  CGPA 8.95 / 10  |  Class of 2027"
-    college   = "Pillai HOC College of Engineering & Technology"
+    role       = "Python Backend & Full-Stack Engineer"
+    education  = "B.E. Information Technology  |  CGPA 8.95 / 10  |  Class of 2027"
+    college    = "Pillai HOC College of Engineering & Technology"
     experience = "Python Full-Stack Developer Intern @ Viraj Profiles Ltd."
-    focus     = ["FastAPI", "Distributed Systems", "Agentic RAG", "MCP", "ETL"]
-    building  = "CloudHeal: a self-healing infrastructure framework"
-    status    = "Open to entry-level Python / Backend roles 🚀"
+    focus      = ["FastAPI", "Distributed Systems", "Agentic RAG", "MCP", "ETL"]
+    building   = "CloudHeal: a multi-node self-healing platform"
+    status     = "Open to entry-level Python / Backend roles 🚀"
 ```
 
 <table>
@@ -37,10 +49,10 @@ class Aniket:
 <td width="50%" valign="top">
 
 ### 🔭 Currently Building
-**[CloudHeal](https://github.com/anikettt-cd/CloudHeal)**: a self-healing infrastructure framework with a FastAPI control plane, Docker node agents, fault detection and verified automated recovery.
+**[CloudHeal](https://github.com/anikettt-cd/CloudHeal)**: a team-built mini cloud that runs Docker workloads across real laptops over Tailscale, with a FastAPI control plane, node agents, a reconciler, and deterministic self-healing.
 
 ### 🧠 Currently Exploring
-Hybrid retrieval, agentic tool-calling, MCP servers, and LLM-assisted incident analysis.
+Failure detection, leases and fencing, hybrid retrieval, agentic tool-calling and MCP servers.
 
 </td>
 <td width="50%" valign="top">
@@ -67,23 +79,15 @@ Entry-level **Python Developer / Backend Developer** roles where I can build rel
 | :--- | :--- |
 | **Languages** | <img src="https://skillicons.dev/icons?i=py,js&theme=dark" alt="Languages" /> |
 | **Backend & APIs** | <img src="https://skillicons.dev/icons?i=fastapi,flask&theme=dark" alt="Backend" /> `SQLAlchemy` `Pydantic` `JWT` `RBAC` |
-| **Databases** | <img src="https://skillicons.dev/icons?i=postgres,mysql,supabase&theme=dark" alt="Databases" /> `pgvector` |
+| **Databases** | <img src="https://skillicons.dev/icons?i=postgres,mysql,supabase,sqlite&theme=dark" alt="Databases" /> `pgvector` |
 | **AI & Retrieval** | `RAG` `FastMCP` `LangGraph` `Embeddings` `BM25` `RRF` `LLM APIs` `Tool Calling` |
 | **Data Processing** | <img src="https://skillicons.dev/icons?i=pandas,numpy&theme=dark" alt="Data" /> `OpenPyXL` `ETL` |
 | **Frontend** | <img src="https://skillicons.dev/icons?i=react,vite,tailwind&theme=dark" alt="Frontend" /> |
-| **DevOps & Tools** | <img src="https://skillicons.dev/icons?i=docker,git,github,linux,vscode&theme=dark" alt="DevOps" /> `pytest` |
+| **Infrastructure & Tools** | <img src="https://skillicons.dev/icons?i=docker,git,github,linux,vscode&theme=dark" alt="DevOps" /> `Tailscale` `uv` `pytest` |
 
 </div>
 
 <br/>
-
-<!-- ═══════════════ PROJECTS ═══════════════ -->
-## ⚡ Featured Projects
-
-<table>
-<tr>
-<td width="50%" valign="top">
-
 
 <!-- ═══════════════ CLOUDHEAL SPOTLIGHT ═══════════════ -->
 ## ☁️ Spotlight: CloudHeal
@@ -171,7 +175,11 @@ flowchart LR
 <br/>
 
 <!-- ═══════════════ PROJECTS ═══════════════ -->
+## ⚡ More Projects
 
+<table>
+<tr>
+<td width="50%" valign="top">
 
 ### 📄 Enterprise Document Intelligence
 *RAG pipeline with provenance*
@@ -183,8 +191,6 @@ PDF extraction, chunking, embeddings and **hybrid search** (BM25 + semantic vect
 ![RAG](https://img.shields.io/badge/RAG-FF6F61?style=flat-square)
 
 </td>
-</tr>
-<tr>
 <td width="50%" valign="top">
 
 ### 🤖 Agentic RAG with MCP
@@ -197,7 +203,9 @@ FastMCP server exposing entity extraction, query refinement and relevance evalua
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 
 </td>
-<td width="50%" valign="top">
+</tr>
+<tr>
+<td colspan="2" valign="top">
 
 ### 🏭 [Material Request System](https://github.com/anikettt-cd/Material-request-management-system)
 *Built for Viraj Profiles Ltd.*
@@ -214,7 +222,7 @@ Full-stack portal automating requests through multi-stage approval to material-c
 
 <br/>
 
-<!-- ═══════════════ ARCHITECTURE DIAGRAM ═══════════════ -->
+<!-- ═══════════════ RAG DIAGRAM ═══════════════ -->
 ## 🧩 How My Agentic RAG Works
 
 ```mermaid
@@ -244,6 +252,7 @@ flowchart LR
 | :---: | :--- |
 | 🎓 | **8.95 CGPA** in B.E. Information Technology (Expected 2027) |
 | 🔐 | Designed **JWT + HTTP-only cookie auth with 7-role RBAC** for a production internal portal |
+| ☁️ | Built a **multi-node scheduler, reconciler and Docker-based recovery loop** with SQLite event history (CloudHeal) |
 | 🔎 | Implemented **hybrid retrieval (BM25 + vectors + RRF)** with page-level provenance |
 | 🛠️ | Delivered **freelance** work: industrial box/rack tracking and a computer-vision people-tracking pipeline |
 | 🧮 | Practising DSA through **LeetCode 75** and collaborative Git workflows (feature branches, PR reviews) |
@@ -263,19 +272,6 @@ flowchart LR
 <img src="https://streak-stats.demolab.com?user=anikettt-cd&theme=tokyonight&hide_border=true&border_radius=12" alt="GitHub streak" />
 
 <br/><br/>
-
-<img src="https://github-profile-trophy.vercel.app/?username=anikettt-cd&theme=tokyonight&no-frame=true&no-bg=true&row=1&column=7&margin-w=10" alt="Trophies" />
-
-<br/><br/>
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=anikettt-cd&theme=tokyo-night&hide_border=true&area=true&custom_title=Contribution%20Activity" alt="Activity graph" width="95%" />
-
-</div>
-
-<br/>
-
-<!-- ═══════════════ SNAKE ═══════════════ -->
-<div align="center">
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/anikettt-cd/anikettt-cd/output/github-snake-dark.svg" />
