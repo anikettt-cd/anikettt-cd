@@ -1,7 +1,7 @@
 <!-- ═══════════════ HEADER BANNER ═══════════════ -->
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=220&section=header&text=Aniket%20Saini&fontSize=62&fontColor=ffffff&animation=fadeIn&fontAlignY=36&desc=Python%20Backend%20%26%20Full-Stack%20Engineer&descSize=22&descAlignY=58" alt="Aniket Saini banner" width="100%" />
+<img src="https://raw.githubusercontent.com/anikettt-cd/anikettt-cd/main/assets/banner.svg" alt="Aniket Saini banner" width="100%" />
 
 <a href="https://github.com/anikettt-cd">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=900&color=00D4FF&center=true&vCenter=true&width=760&lines=Building+high-performance+Python+REST+APIs;Designing+Agentic+RAG+%26+MCP+architectures;Engineering+self-healing+distributed+systems;Final-year+IT+Engineering+%7C+Open+to+opportunities+%F0%9F%9A%80" alt="Typing animation" />
@@ -295,7 +295,7 @@ I'm actively looking for **entry-level Python / Backend Developer** roles and op
 
 <br/><br/>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=footer" alt="footer" width="100%" />
+<img src="https://raw.githubusercontent.com/anikettt-cd/anikettt-cd/main/assets/footer.svg" alt="footer" width="100%" />
 
 <sub>⭐ If you like what you see, drop a star on a repo, it genuinely helps!</sub>
 
