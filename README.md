@@ -84,17 +84,94 @@ Entry-level **Python Developer / Backend Developer** roles where I can build rel
 <tr>
 <td width="50%" valign="top">
 
-### ☁️ [CloudHeal](https://github.com/anikettt-cd/CloudHeal)
-*Final-year major project · In development*
 
-Self-healing infrastructure framework: node registration, health monitoring, Docker-based workload scheduling, fault detection, and policy-based recovery with verification.
+<!-- ═══════════════ CLOUDHEAL SPOTLIGHT ═══════════════ -->
+## ☁️ Spotlight: CloudHeal
 
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![Distributed](https://img.shields.io/badge/Distributed_Systems-6C47FF?style=flat-square)
+> **A policy-based, self-healing mini cloud built on real laptops.**
+> Final-year major project (team of 4). CloudHeal runs workloads in Docker across multiple machines, watches them, and recovers them when things break. The goal is *measurable* self-healing, not just a dashboard.
 
-</td>
-<td width="50%" valign="top">
+### Architecture
+
+```mermaid
+flowchart TB
+    subgraph CP["Control Plane · FastAPI"]
+        API[REST API] --> SCH[Resource-aware<br/>Scheduler]
+        SCH --> REC[Reconciler<br/>desired vs observed state]
+        API --> DB[(SQLite<br/>state + event history)]
+        REC --> DB
+    end
+
+    subgraph NET["Tailscale private network"]
+        A1[Node Agent<br/>macOS laptop]
+        A2[Node Agent<br/>Windows laptops]
+    end
+
+    SCH -->|execute / status| A1
+    SCH -->|execute / status| A2
+    A1 -. heartbeat .-> API
+    A2 -. heartbeat .-> API
+    A1 --> D1[(Docker)]
+    A2 --> D2[(Docker)]
+
+    LF[Leases + Fencing<br/>planned]:::planned -.-> CP
+    GW[Stable App Gateway<br/>planned]:::planned -.-> NET
+    AI[AI Diagnosis + Planning<br/>planned · behind safety gate]:::planned -.-> CP
+
+    classDef planned fill:#161b22,stroke:#8b949e,stroke-dasharray: 5 5,color:#8b949e
+    style CP fill:#0d1117,stroke:#1f6feb,color:#fff
+    style NET fill:#0d1117,stroke:#238636,color:#fff
+```
+
+### Target recovery flow
+
+```mermaid
+flowchart LR
+    F([Failure detected]) --> C[Classify<br/>container · node · uncertain]
+    C --> S{Desired state RUNNING<br/>and recovery safe?}
+    S -->|no| B[Block action<br/>+ record event]
+    S -->|yes| P[Select eligible node<br/>capacity-aware]
+    P --> G[Allocate higher<br/>placement generation]
+    G --> E[Execute replacement<br/>via Node Agent]
+    E --> V{Container + app<br/>healthy?}
+    V -->|yes| OK([Recovered ✅])
+    V -->|no| R[Bounded retry<br/>or escalate]
+    R --> C
+
+    style F fill:#0d1117,stroke:#f85149,color:#fff
+    style OK fill:#238636,stroke:#3fb950,color:#fff
+    style S fill:#1f6feb,stroke:#58a6ff,color:#fff
+    style V fill:#1f6feb,stroke:#58a6ff,color:#fff
+```
+
+### Project status
+
+| Area | Status |
+| :--- | :--- |
+| Node registration, heartbeats, system & Docker runtime reporting | ✅ Working |
+| Workload creation, resource-aware scheduling, Docker execution via Node Agents | ✅ Working |
+| Reconciler loop with stopped / missing-container recovery (verified against real Docker) | ✅ Working |
+| SQLite persistence and execution-event history | 🔄 Partially implemented, verification ongoing |
+| Automated tests | ✅ 23 control-plane tests passing (last recorded run) |
+| Second real laptop (Windows) as a compute node over Tailscale | 🔄 In progress |
+| Node health state machine: `HEALTHY → SUSPECT → UNAVAILABLE` | 🗺️ Planned |
+| Leases, placement generations, agent-enforced fencing, cross-node failover | 🗺️ Planned |
+| Bounded retries, crash-loop detection, recovery concurrency limits | 🗺️ Planned |
+| Stable application URL (gateway) and repeatable experiment runner | 🗺️ Planned |
+| AI-assisted diagnosis and constrained recovery planning | 🗺️ Planned |
+
+### Design principles
+
+- **Deterministic first, AI second.** Safety and recovery logic is rule-based. The AI layer may only *recommend*, and every recommendation must pass a deterministic safety gate.
+- **Infrastructure never depends on the model.** If the LLM API is down, the platform keeps running.
+- **Scheduling ≠ execution ≠ health.** A placement decision, a started container, and a healthy application are treated as three separate stages.
+- **A timeout is not a failure.** An unreachable node does not prove its containers have stopped, so the design handles uncertain outcomes explicitly.
+- **Measure, don't assume.** Recovery is evaluated through repeated failure experiments (detection time, recovery time, duplicate execution, retries).
+
+<br/>
+
+<!-- ═══════════════ PROJECTS ═══════════════ -->
+
 
 ### 📄 Enterprise Document Intelligence
 *RAG pipeline with provenance*
